@@ -7,7 +7,7 @@ pipeline{
             steps{
                 sh '''
                  cd /var/www/node-js-getting-started/
-                 git pull
+                 sudo git pull
                  '''
             }
         }
