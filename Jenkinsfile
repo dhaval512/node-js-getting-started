@@ -6,7 +6,7 @@ pipeline{
         stage('git pull'){
             steps{
                 sh '''
-                 cd /var/www/node-test/
+                 cd /var/www/node-js-getting-started/
                  git pull
                  '''
             }
@@ -14,7 +14,7 @@ pipeline{
         stage('build'){
             steps{
                  sh '''
-                 cd  /var/www/node-test/
+                 cd  /var/www/node-js-getting-started/
                  sudo npm install
                  '''
             }
@@ -22,7 +22,7 @@ pipeline{
         stage('deploy'){
             steps{
                  sh '''
-                 cd /var/www/node-test/
+                 cd /var/www/node-js-getting-started/
                  sudo npm start
                  '''
             }
