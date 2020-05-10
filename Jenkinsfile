@@ -7,7 +7,6 @@ pipeline{
             steps{
                 sh '''
                  cd /var/www/node-test/
-                 git init 
                  git pull
                  '''
             }
