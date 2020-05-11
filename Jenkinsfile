@@ -22,7 +22,7 @@ pipeline{
             steps{
                  sh '''
                  cd /var/www/html
-                 Killall -9 node
+                 sudo Killall -9 node
                  sudo npm install
                  sudo npm start
                  '''
