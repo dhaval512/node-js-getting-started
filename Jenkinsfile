@@ -22,10 +22,7 @@ pipeline{
             steps{
                  sh '''
                  cd /var/www/html
-                 sudo killall -9 node
-                 sudo npm install
-                 sudo pm2 restart all
-                 '''
+                 pm2 restart all                  '''
             }
         }
     }
