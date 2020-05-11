@@ -23,7 +23,7 @@ pipeline{
                  sh '''
                  cd /var/www/html
                  sudo pm2 start test.js
-                 sudo pm2 restart all                  '''
+                 '''
             }
         }
     }
