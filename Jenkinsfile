@@ -22,6 +22,7 @@ pipeline{
             steps{
                  sh '''
                  cd /var/www/html
+                 sudo npm install
                  sudo npm start
                  '''
             }
