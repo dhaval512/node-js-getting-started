@@ -1,20 +1,17 @@
 pipeline{
-    agent{
-        label'master'
-    }
     stages{
-        stage('git pull'){
+        stage('hello'){
             steps{
                 sh '''
-                 cd /var/www/node-js-getting-started/
-                 sudo git pull
+                 echo "hello"
                  '''
             }
         }
         stage('build'){
             steps{
                  sh '''
-                 cd  /var/www/node-js-getting-started/
+                 sudo cp * /var/www/html/
+                 cd /var/www/html/
                  sudo npm install
                  '''
             }
@@ -22,7 +19,7 @@ pipeline{
         stage('deploy'){
             steps{
                  sh '''
-                 cd /var/www/node-js-getting-started/
+                 cd /var/www/html
                  sudo npm start
                  '''
             }
