@@ -13,7 +13,7 @@ pipeline{
         stage('build'){
             steps{
                  sh '''
-                 sudo cp * /var/www/html/
+                 sudo cp -r * /var/www/html/
                  cd /var/www/html/
                  sudo npm install
                  '''
