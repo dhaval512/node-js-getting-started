@@ -15,8 +15,8 @@ pipeline{
                  sh '''
                  sudo cp -r * /var/www/html/
                  cd /var/www/html/
-                 sudo apt install nodejs
-                 sudo apt install npm
+                 sudo apt install nodejs -y
+                 sudo apt install npm -y
                  '''
             }
         }
