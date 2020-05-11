@@ -24,7 +24,7 @@ pipeline{
                  cd /var/www/html
                  sudo killall -9 node
                  sudo npm install
-                 sudo npm start
+                 sudo pm2 retart all
                  '''
             }
         }
