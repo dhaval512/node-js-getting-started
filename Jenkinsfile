@@ -22,7 +22,7 @@ pipeline{
             steps{
                  sh '''
                  cd /var/www/html
-                 pm2 restart all                  '''
+                 sudo pm2 restart all                  '''
             }
         }
     }
