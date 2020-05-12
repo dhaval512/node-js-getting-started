@@ -21,8 +21,8 @@ pipeline{
         stage('deploy'){
             steps{
                  sh '''
-                 sudo pm2 restart all
-
+                 cd  /var/www/html/
+                 pm2 start index.js
                  '''
             }
         }
