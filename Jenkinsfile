@@ -21,8 +21,8 @@ pipeline{
         stage('deploy'){
             steps{
                  sh '''
-                 cd /var/www/html
-                 sudo pm2 restart 1
+                 sudo pm2 restart all
+
                  '''
             }
         }
