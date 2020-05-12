@@ -22,7 +22,7 @@ pipeline{
             steps{
                  sh '''
                  cd  /var/www/html/
-                 pm2 start index.js
+                 sudo pm2 start index.js
                  '''
             }
         }
