@@ -1,0 +1,15 @@
+pipeline{
+    agent{
+        label'ubuntu'
+    }
+    stages{
+        stage('docker file for stage'){
+            steps{
+                sh '''
+                 sh docker.sh
+                '''
+                 }
+        }
+        }
+}
+
