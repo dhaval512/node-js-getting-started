@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label'ubuntu'
+        label'test'
     }
     stages{
         stage('docker file for stage'){
