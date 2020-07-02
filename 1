@@ -1,0 +1,9 @@
+FROM node:10.18.1 
+RUN apt update && apt upgrade && rm -rf /var/cache/apk/*
+WORKDIR /app/
+
+COPY . /app
+
+RUN npm install
+
+CMD [ "npm", "start" ]
