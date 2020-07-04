@@ -7,15 +7,20 @@ pipeline{
         REPOSITORY_URI='792026813527.dkr.ecr.us-east-1.amazonaws.com/heroku'
         SERVICE_NAME="heroku"
         TASK_FAMILY="heroku"
+        AWS_SHARED_CREDENTIALS_FILE='./credentials'
+        AWS_CONFIG_FILE='./config'
     }
     stages{
         stage('ecr configure'){
             steps{
                 sh 'aws --version'
+                sh 'echo "[default]" > ./credentials'
+                sh 'echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ./credentials'
+                sh 'echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ./credentials'
+                sh 'echo "[default]" > ./config'
+                sh 'echo "region=$AWS_DEFAULT_REGION" >> ./config'
                 sh '''
-                export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID && \
-                export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY && \
-                $(aws ecr get-login --no-include-email --region us-east-1)
+                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 792026813527.dkr.ecr.us-east-1.amazonaws.com 
                  '''
             }
         }
