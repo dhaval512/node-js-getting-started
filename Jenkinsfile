@@ -14,7 +14,7 @@ pipeline{
                 sh '''
                 export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
                 export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                aws ecr get-login --region us-east-1 
+                $(aws ecr get-login --no-include-email  --region us-east-1) 
                  '''
             }
         }
