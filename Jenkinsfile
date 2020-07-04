@@ -14,7 +14,7 @@ pipeline{
                 sh '''
                 export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
                 export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 792026813527.dkr.ecr.us-east-1.amazonaws.com
+                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 792026813527.dkr.ecr.us-east-1.amazonaws.com --no-include-email 
                  '''
             }
         }
