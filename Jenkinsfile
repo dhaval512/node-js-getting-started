@@ -5,7 +5,6 @@ pipeline{
         AWS_SECRET_ACCESS_KEY=credentials('secretkey_id')
         AWS_DEFAULT_REGION='us-east-1'
         REPOSITORY_URI='792026813527.dkr.ecr.us-east-1.amazonaws.com/heroku'
-        IMAGE_TAG="${GIT_COMMIT:latest}" 
         SERVICE_NAME="heroku"
         TASK_FAMILY="heroku"
     }
@@ -21,7 +20,7 @@ pipeline{
             steps{
                  sh '''
                  docker build -t $REPOSITORY_URI:latest . && \
-                 docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG 
+                 docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$GIT_COMMIT 
                  '''
             }
         }
@@ -29,7 +28,7 @@ pipeline{
             steps{
                 sh '''
                  docker push $REPOSITORY_URI:latest && \
-                 docker push $REPOSITORY_URI:$IMAGE_TAG 
+                 docker push $REPOSITORY_URI:$GIT_COMMIT 
                  '''
             }
         }
