@@ -37,6 +37,7 @@ pipeline{
             steps{
                  sh '''
                  sed -e "s;%BUILD_NUMBER%;${GIT_COMMIT};g" taskdefination.json > heroku-${GIT_COMMIT}.json
+                 cat heroku-${GIT_COMMIT}.json
                  '''
                  sh 'aws ecs register-task-definition --family heroku --cli-input-json file://heroku_${GIT_COMMIT}.json'
                  sh '''
