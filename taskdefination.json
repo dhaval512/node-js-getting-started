@@ -1,0 +1,18 @@
+{
+    "family": "heroku",
+    "containerDefinitions": [
+        {
+            "image": "792026813527.dkr.ecr.us-east-1.amazonaws.com/heroku:%BUILD_NUMBER%",
+            "name": "heroku",
+            "cpu": 10,
+            "memory": 500,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 3000
+                }
+            ]
+        }
+    ]
+}
