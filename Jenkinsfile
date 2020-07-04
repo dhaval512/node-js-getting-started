@@ -13,7 +13,7 @@ pipeline{
         stage('ecr configure'){
             steps{
                 sh '''
-                 aws ecr get-login --region $AWS_DEFAULT_REGION
+                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 792026813527.dkr.ecr.us-east-1.amazonaws.com
                  '''
             }
         }
