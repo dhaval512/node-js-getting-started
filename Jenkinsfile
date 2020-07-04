@@ -5,7 +5,7 @@ pipeline{
     environment {
         AWS_ACCESS_KEY_ID=credentials('accesskey_id')
         AWS_SECRET_ACCESS_KEY=credentials('secretkey_id')
-        AWS_DEFAULT_REGION=us-east-1
+        AWS_DEFAULT_REGION='us-east-1'
         REPOSITORY_URI=792026813527.dkr.ecr.us-east-1.amazonaws.com/heroku
         IMAGE_TAG="${heroku:latest}" 
         SERVICE_NAME="heroku"
