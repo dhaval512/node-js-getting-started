@@ -36,9 +36,9 @@ pipeline{
         stage('pre-deploy'){
             steps{
                  sh '''
-                 sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" taskdefination.json > heroku-${BUILD_NUMBER}.json
+                 sed -e "s;%BUILD_NUMBER%;${GIT_COMMIT};g" taskdefination.json > heroku-${GIT_COMMIT}.json
                  '''
-                 sh 'aws ecs register-task-definition --family heroku --cli-input-json file://heroku_${BUILD_NUMBER}.json'
+                 sh 'aws ecs register-task-definition --family heroku --cli-input-json file://heroku_${GIT_COMMIT}.json'
                  sh '''
                  TASK_REVISION=`aws ecs describe-task-definition --task-definition heroku | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`  
                  aws ecs update-service --cluster default --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 1
