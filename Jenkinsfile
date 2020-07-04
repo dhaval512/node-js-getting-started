@@ -27,7 +27,6 @@ pipeline{
                  '''
             }
         }
-    stages{
         stage('eCR PUSH'){
             steps{
                 sh '''
@@ -49,5 +48,4 @@ pipeline{
             }
         }
     }
-}
 }
