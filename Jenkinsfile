@@ -46,7 +46,7 @@ pipeline{
 
                  DESIRED_COUNT=`aws ecs describe-services --services ${SERVICE_NAME} | egrep "desiredCount" | tr "/" " " | awk '{print $2}' | sed 's/,$//'`
                  if [ ${DESIRED_COUNT} = "0" ]; then
-                 DESIRED_COUNT="1"
+                 DESIRED_COUNT="2"
                  fi  
                  aws ecs update-service --cluster herok --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 2
                  sh task.sh
