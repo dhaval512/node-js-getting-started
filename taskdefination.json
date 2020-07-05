@@ -4,12 +4,12 @@
         {
             "image": "792026813527.dkr.ecr.us-east-2.amazonaws.com/herok:%BUILD_NUMBER%",
             "name": "herok",
-            "memory": 1024,
+            "memory": 256,
             "essential": true,
             "portMappings": [
                 {
                     "containerPort": 5000,
-                    "hostPort": 3000
+                    "hostPort": 0,
                 }
             ]
         }
