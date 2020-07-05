@@ -1,5 +1,5 @@
 {
-    "family": "heroku",
+    "family": "herok",
     "containerDefinitions": [
         {
             "image": "792026813527.dkr.ecr.us-east-2.amazonaws.com/herok:%BUILD_NUMBER%",
