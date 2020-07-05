@@ -49,7 +49,7 @@ pipeline{
                  DESIRED_COUNT="1"
                  fi  
                  aws ecs update-service --cluster herok --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 1
-                 sleep 60
+                 sh script/task.sh
                 '''
             }
         }
