@@ -43,7 +43,7 @@ pipeline{
                  sh '''
                  TASK_REVISION=`aws ecs describe-task-definition --task-definition herok | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`  
                  aws ecs update-service --cluster herok --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 1
-                 sleep 500
+                 sleep 60
                 '''
             }
         }
