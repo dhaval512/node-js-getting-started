@@ -42,6 +42,8 @@ pipeline{
                  sh 'aws ecs register-task-definition --family herok --cli-input-json file://$PWD/herok-${GIT_COMMIT}.json'
                  sh '''
                  TASK_REVISION=`aws ecs describe-task-definition --task-definition herok | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
+                 aws ecs list-tasks --cluster "herok" --service "herok" --output text --query taskArns[0]
+
                  DESIRED_COUNT=`aws ecs describe-services --services ${SERVICE_NAME} | egrep "desiredCount" | tr "/" " " | awk '{print $2}' | sed 's/,$//'`
                  if [ ${DESIRED_COUNT} = "0" ]; then
                  DESIRED_COUNT="1"
